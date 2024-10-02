@@ -100,6 +100,7 @@ class RandomTurtleGoal(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = RandomTurtleGoal()
+    print("Publisher Node Runnning...")
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

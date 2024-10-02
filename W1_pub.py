@@ -9,7 +9,7 @@ class StatePublisher(Node):
 	def __init__(self):
 		super().__init__("state_publisher_node") # Node name 
 		self.pub = self.create_publisher(Float64MultiArray, "random_dim_state", 10) # data type, name of topic
-		self.timer = self.create_timer(0.5, self.publish_7_dim_state )
+		self.timer = self.create_timer(0.5, self.publish_7_dim_state ) # sec, callback function
 		self.counter = 0 
 
 	def publish_7_dim_state (self):

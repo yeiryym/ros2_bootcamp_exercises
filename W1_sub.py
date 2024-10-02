@@ -2,20 +2,20 @@
 
 import rclpy
 from rclpy.node import Node 
-from std_msgs.msg import Float64MultiArray # import data type 
+from std_msgs.msg import Float64MultiArray
 
 
-class StateSubscriber(Node): # initialize class node 
+class StateSubscriber(Node): # initialize  node 
 	def __init__(self):
 		super().__init__("state_subscriber_node") # initializing node, "name of node"
-		self.sub = self.create_subscription(Float64MultiArray, "random_dim_state", self.subscriber_callback, 10) # Creates a subscriber,(msg type, topic subscribed to, callback function?, rate)
-		self.pub = self.create_publisher(Float64MultiArray, "new_dim_state", 10) # Creates a publisher, publishes to topic new_dim_state
+		self.sub = self.create_subscription(Float64MultiArray, "random_dim_state", self.subscriber_callback, 10) # 
+		self.pub = self.create_publisher(Float64MultiArray, "new_dim_state", 10) # publishes to topic new_dim_state
 
 	def subscriber_callback(self, msg): # msg is variable where the data is being stored 
 		state_7d = msg.data
 		state_6d = state_7d[:6]
 		new_msg = Float64MultiArray()  # Variable for the data type 
-		new_msg.data = state_6d # Load in the actual data "speed"
+		new_msg.data = state_6d 
 		self.pub.publish(new_msg) # Publish the data 
         
 
