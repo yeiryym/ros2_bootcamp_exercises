@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'my_node = turtle_sim.my_node:main'
             'turtle_cleaner = turtle_sim.turtle_cleaner:main'
+            'turtle_goal = turtle_sim.turtle_goal:main'
         ],
     },
 )
